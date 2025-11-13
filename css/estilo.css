@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    flex-direction: column;
+}
+#controle {
+    margin-bottom: 20px;
+}
+#quadrado {
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}

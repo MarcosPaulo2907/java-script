@@ -4,28 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Troca de Cor e Texto</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    
+
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            flex-direction: column;
-        }
-        #controle {
-            margin-bottom: 20px;
-        }
-        #quadrado {
-            width: 200px;
-            height: 200px;
-            background-color: lightgray;
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-        }
+       
     </style>
 </head>
 <body>
@@ -44,37 +27,7 @@
         Azul
     </div>
 
-    <script>
-        // Função para mudar a cor e o texto com base na opção selecionada
-        function mudarCor() {
-            var quadrado = document.getElementById("quadrado");
-            var texto = quadrado;
-            var corSelecionada = document.querySelector('input[name="cor"]:checked'); // Verifica qual radio está selecionado
-
-            if (corSelecionada) {
-                var cor = corSelecionada.value; // Pega o valor da cor selecionada
-                switch (cor) {
-                    case "azul":
-                        quadrado.style.backgroundColor = "blue";
-                        texto.innerHTML = "Azul";
-                        break;
-                    case "vermelho":
-                        quadrado.style.backgroundColor = "red";
-                        texto.innerHTML = "Vermelho";
-                        break;
-                    case "verde":
-                        quadrado.style.backgroundColor = "green";
-                        texto.innerHTML = "Verde";
-                        break;
-                }
-            }
-        }
-
-        // Adiciona eventos de mudança nos inputs
-        document.querySelectorAll('input[name="cor"]').forEach(function(radio) {
-            radio.addEventListener('change', mudarCor);
-        });
-    </script>
-
+    <script src="java/estilo.js"></script>
+    
 </body>
 </html>
