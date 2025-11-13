@@ -1,85 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Troca de Cor e Texto</title>
-    
-    
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            flex-direction: column;
-        }
-        #controle {
-            margin-bottom: 20px;
-        }
-        #quadrado {
-            width: 200px;
-            height: 200px;
-            background-color: lightgray;
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-        }
-    </style>
-  
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manipulação JavaScript</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                background-color: burlywood;
+                flex-wrap: wrap;
+            }
+            body h1 {
+                width: 100%;
+                height: 10%;
+                text-align: center;
+            }
+            #controle {
+                width: 40%;
+                height: 300px;
+                background-color: darkgray;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            #controle p {
+                width: 100%;
+                height: 30%;
+                font-weight: 900;
+                font-size: 30px;
+                text-align: center;
+            }
+            #controle div {
+                width: 100%;
+                height: 70%;
+                font-weight: 900;
+                font-size: 30px;
+                text-align: justify;
+            }
+            #controle div>input {
+                margin-top: 10px;
+                margin-left: 40%;
+                width: 20px;
+                height: 20px;
+            }
+            #objeto {
+                width: 30%;
+                height: 300px;
+                background-color: darkgray;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            #quadrado {
+                width: 200px;
+                height: 200px;
+                background-color: blue;
+            }
+            .center {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Manipulação JavaScript</h1>
+        <div id="controle">
+            <p>Escolha uma opção</p>
+            <div>
+                <input type="radio" id="azul" name="cor" value="1">
+                <label for="azul">Azul</label><br>
+                <input type="radio" id="vermelho" name="cor" value="2">
+                <label for="vermelho">Vermelho</label><br>
+            </div>
+        </div>
+        <div id="objeto">
+            <h1 class="center" id="texto">Azul</h1>
+            <div id="quadrado" class="center"></div>
+        </div>
 
-    <div id="controle">
-        <p>Escolha uma cor:</p>
-        <input type="radio" id="azul" name="cor" value="azul">
-        <label for="azul">Azul</label><br>
-        <input type="radio" id="vermelho" name="cor" value="vermelho">
-        <label for="vermelho">Vermelho</label><br>
-        <input type="radio" id="verde" name="cor" value="verde">
-        <label for="verde">Verde</label><br>
-    </div>
+        <script>
+            // Função para alterar cor e texto
+            function alterarCorTexto() {
+                var corSelecionada = document.querySelector('input[name="cor"]:checked').value;
+                var textoElemento = document.getElementById('texto');
+                var quadradoElemento = document.getElementById('quadrado');
 
-    <div id="quadrado">
-        Azul
-    </div>
+                if (corSelecionada == "1") { // Azul
+                    textoElemento.textContent = "Azul";
+                    quadradoElemento.style.backgroundColor = "blue";
+                } else if (corSelecionada == "2") { // Vermelho
+                    textoElemento.textContent = "Vermelho";
+                    quadradoElemento.style.backgroundColor = "red";
+                }
+            }
 
-    <script>
-       // Função para mudar a cor e o texto com base na opção selecionada
-function mudarCor() {
-    var quadrado = document.getElementById("quadrado");
-    var texto = quadrado;
-    var corSelecionada = document.querySelector('input[name="cor"]:checked'); // Verifica qual radio está selecionado
-
-    if (corSelecionada) {
-        var cor = corSelecionada.value; // Pega o valor da cor selecionada
-        switch (cor) {
-            case "azul":
-                quadrado.style.backgroundColor = "blue";
-                texto.innerHTML = "Azul";
-                break;
-            case "vermelho":
-                quadrado.style.backgroundColor = "red";
-                texto.innerHTML = "Vermelho";
-                break;
-            case "verde":
-                quadrado.style.backgroundColor = "green";
-                texto.innerHTML = "Verde";
-                break;
-        }
-    }
-}
-
-// Adiciona eventos de mudança nos inputs
-document.querySelectorAll('input[name="cor"]').forEach(function(radio) {
-    radio.addEventListener('change', mudarCor);
-});
-
- 
-    </script>
-
-</body>
+            // Adiciona o evento de mudança nos botões de rádio
+            var radios = document.querySelectorAll('input[name="cor"]');
+            radios.forEach(function(radio) {
+                radio.addEventListener('change', alterarCorTexto);
+            });
+        </script>
+    </body>
 </html>
